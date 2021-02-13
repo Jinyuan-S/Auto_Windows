@@ -1,5 +1,65 @@
-Auto_Winodws
-# 项目日程安排 #
+# 项目安排 #
+
+## 服务器地址  http://39.106.85.198/
+
+**已经安装**
+
+- Linux版本为centos 8
+
+- nginx
+- nodejs(10.21.0)  npm(6.14.4)
+
+## Model Design
+
+```js
+window {
+    _id, // 窗户的id
+    name, // 窗户的名字，默认为Undefined
+    owner, // 持有者的id, 默认为None
+    device_id, // Onenet上的设备id
+    api_key, // Onenet上的apikey
+    direciton, // 朝向 默认为None
+    auto: true/false // 窗户是否处于托管状态
+    open: true/false // 窗户是否处于开启状态
+    // 后续可添加其他状态
+}
+condition {
+    air_quality: {
+        AQI, // 空气质量
+        PM25, 
+        PM10,
+        O3,
+        NO2,
+        SO2,
+        CO
+    },
+    weather: {
+        rain_fall, // 降雨
+        wind_direction, // 风向
+        wind_speed, // 风速
+        RH, // 室外湿度
+        TEM // 室外温度
+    },
+    indoor: {
+        O2, // 含氧量
+        RH, // 室内湿度
+        TEM // 室内温度
+    }
+}
+user {
+    _id, 
+    name, 
+    windows: [_id1, _id2, ...], 
+    Preference: {
+        rain, // 对降雨敏感
+        wind, // 对风敏感
+        AQI, // 对空气质量敏感
+        RH, // 对湿度敏感
+        O2, // 对含氧量敏感
+        TEM // 对温度敏感
+    }
+}
+```
 
 ## 第四周 ##
 
